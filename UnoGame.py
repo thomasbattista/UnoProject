@@ -1,6 +1,5 @@
 #UnoGame
-#add ready screen for multiple human players, differing AI, stacking, house rules (teams)
-#Add to Github
+#add Differing AI, stacking, house rules (teams)
 
 import operator 
 import re #reg expressions
