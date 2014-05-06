@@ -46,13 +46,13 @@ def main():
 	players = []
 	turn,direction = 0,1
 		
-	pattern = '^[0-4]$'
+	pattern = '^[0-8]$'
 	
 	humanPlayerStr=''
 	AIPlayerStr=''
 	
 	while None is re.match(pattern,humanPlayerStr):
-		humanPlayerStr=input("Input number of human players (0-4): ").strip()
+		humanPlayerStr=input("Input number of human players (0-8): ").strip()
 	humanPlayerNum = int(humanPlayerStr)
 	
 	for i in range(humanPlayerNum):
@@ -60,7 +60,7 @@ def main():
 		players.append(HumanPlayer(s,[]))
 	
 	while None is re.match(pattern,AIPlayerStr):
-		AIPlayerStr = input("Input number of AI players (0-4): ").strip()
+		AIPlayerStr = input("Input number of AI players (0-8): ").strip()
 	AIPlayerNum = int(AIPlayerStr)
 	for i in range(AIPlayerNum):
 		players.append(AIPlayer("AI Player " + str(i+1),[]))
@@ -68,7 +68,6 @@ def main():
 	global SORTMETHOD
 	while None is re.match('^(?:color|name|num|number|none|unsorted)$',SORTMETHOD):
 		SORTMETHOD = input("Sort by color, name, or none: ").lower().strip()
-	
 	
 	playerNum = humanPlayerNum+AIPlayerNum 
 				
@@ -110,7 +109,7 @@ def main():
 		SCREEN.fill((0,0,0))		
 		
 		
-		if cardPlayed==True: #***********
+		if cardPlayed: 
 			if cardx != None and cardy != None and cardSelect is not None and isinstance(players[turn], HumanPlayer):# cardSelect != Card('none',0):
 				if cardSelect == Card('none',0):
 					drawHighlightCard(cardx, cardy,BLUE)													
