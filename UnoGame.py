@@ -109,7 +109,7 @@ def main():
 		SCREEN.fill((0,0,0))		
 		
 		
-		if cardPlayed: 
+		if cardPlayed or isinstance(players[1], AIPlayer): 
 			if cardx != None and cardy != None and cardSelect is not None and isinstance(players[turn], HumanPlayer):# cardSelect != Card('none',0):
 				if cardSelect == Card('none',0):
 					drawHighlightCard(cardx, cardy,BLUE)													
